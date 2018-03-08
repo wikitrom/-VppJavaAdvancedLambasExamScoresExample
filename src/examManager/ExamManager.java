@@ -3,6 +3,7 @@ package examManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
 
 public class ExamManager {
 
@@ -19,7 +20,7 @@ public class ExamManager {
 		myScores.add(54.1);
 	}
 
-	public Double customCalculation(Function<List<Double>, Double> calculator) {
-		return calculator.apply(myScores);
+	public Double customCalculation(ToDoubleFunction<List<Double>> calculator) {
+		return calculator.applyAsDouble(myScores);
 	}
 }

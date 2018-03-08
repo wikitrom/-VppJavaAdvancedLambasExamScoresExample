@@ -1,14 +1,14 @@
 package examManager;
 
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		// lambda functions
-		Function<List<Double>, Double> average = (scores) -> {
+		// define lambda functions
+		ToDoubleFunction<List<Double>> average = (scores) -> {
 			Double sum = 0d;
 			for (Double nextScore : scores) {
 				sum += nextScore;
@@ -16,7 +16,7 @@ public class Main {
 			return sum / scores.size();
 		};
 
-		Function<List<Double>, Double> highest = (scores) -> {
+		ToDoubleFunction<List<Double>> highest = (scores) -> {
 			Double currentHighest = 0d;
 			for (Double nextScore : scores) {
 				currentHighest = Math.max(currentHighest, nextScore);
@@ -24,7 +24,7 @@ public class Main {
 			return currentHighest;
 		};
 
-		Function<List<Double>, Double> lowest = (scores) -> {
+		ToDoubleFunction<List<Double>> lowest = (scores) -> {
 			Double currentLowest = Double.MAX_VALUE;
 			for (Double nextScore : scores) {
 				currentLowest = Math.min(currentLowest, nextScore);
@@ -35,10 +35,16 @@ public class Main {
 		ExamManager examManager = new ExamManager();
 
 		System.out.println();
-		System.out.println("Using lamba functions:"); // passing lambda function as argument
+		
+		// passing defined lambda functios as argument
+		System.out.println("Using lamba functions:"); 
 		System.out.println("The average score is " + examManager.customCalculation(average));
 		System.out.println("The highest score is " + examManager.customCalculation(highest));
-		System.out.println(" The lowest score is " + examManager.customCalculation(lowest));
+		System.out.println("The lowest score is " + examManager.customCalculation(lowest));
+		
+		 // use in-line lambda functions
+		System.out.println("The first score is " + examManager.customCalculation(scores -> scores.get(0))); 
+		System.out.println("The last score is " + examManager.customCalculation(scores -> scores.get(scores.size()-1))); 
 	}
 
 }
