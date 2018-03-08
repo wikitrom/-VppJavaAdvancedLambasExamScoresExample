@@ -2,14 +2,11 @@ package examManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class ExamManager {
 
 	private List<Double> myScores;
-
-	public interface CalculationFunctionInterface {
-		public Double execute(List<Double> scores);
-	}
 
 	public ExamManager() {
 		myScores = new ArrayList<Double>();
@@ -22,7 +19,7 @@ public class ExamManager {
 		myScores.add(54.1);
 	}
 
-	public Double customCalculation(CalculationFunctionInterface calculator) {
-		return calculator.execute(myScores);
+	public Double customCalculation(Function<List<Double>, Double> calculator) {
+		return calculator.apply(myScores);
 	}
 }
