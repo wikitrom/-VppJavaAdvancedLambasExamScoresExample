@@ -3,13 +3,14 @@ package examManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import calculators.CalculationFunctionInterface;
-
 public class ExamManager {
 
 	private List<Double> myScores;
 
-	
+	public interface CalculationFunctionInterface {
+		public Double execute(List<Double> scores);
+	}
+
 	public ExamManager() {
 		myScores = new ArrayList<Double>();
 		myScores.add(78.3);

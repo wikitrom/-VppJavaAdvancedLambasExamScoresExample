@@ -1,6 +1,6 @@
 package examManager;
 
-import calculators.CalculationFunctionInterface;
+import examManager.ExamManager.CalculationFunctionInterface;
 
 public class Main {
 
