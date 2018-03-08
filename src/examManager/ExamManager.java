@@ -23,4 +23,9 @@ public class ExamManager {
 	public Double customCalculation(ToDoubleFunction<List<Double>> calculator) {
 		return calculator.applyAsDouble(myScores);
 	}
+	
+	public void printScores() {
+		System.out.println("The scores are:");
+		myScores.forEach(s -> System.out.println(s.toString()));
+	}
 }

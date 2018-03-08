@@ -45,6 +45,8 @@ public class Main {
 		 // use in-line lambda functions
 		System.out.println("The first score is " + examManager.customCalculation(scores -> scores.get(0))); 
 		System.out.println("The last score is " + examManager.customCalculation(scores -> scores.get(scores.size()-1))); 
+		
+		examManager.printScores();
 	}
 
 }
