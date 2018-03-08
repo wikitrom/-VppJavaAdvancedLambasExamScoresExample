@@ -9,6 +9,7 @@ public class ExamManager {
 
 	private List<Double> myScores;
 
+	
 	public ExamManager() {
 		myScores = new ArrayList<Double>();
 		myScores.add(78.3);
