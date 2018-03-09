@@ -53,8 +53,12 @@ public class Main {
 
 		System.out.println();
 		int limit = 60;
-		System.out.println("Scores >= " + limit);
+		System.out.println("Selected Scores where score >= " + limit);
 		examManager.printSelectedScores(s -> s >= limit);
+
+		System.out.println();
+		System.out.println("Total of all scores: " + examManager.getTotalOfAllScores());
+
 	}
 
 }

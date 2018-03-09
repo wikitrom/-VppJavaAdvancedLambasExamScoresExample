@@ -2,10 +2,12 @@ package examManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
+import java.util.stream.Stream;
+
+import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class ExamManager {
 
@@ -27,16 +29,38 @@ public class ExamManager {
 	}
 
 	public void printScores() {
-		Collections.sort(myScores, (o1, o2) -> {return (o1 < o2) ? 1 : ((o1 > o2) ? -1 : 0);});
+		Collections.sort(myScores, (o1, o2) -> {
+			return (o1 < o2) ? 1 : ((o1 > o2) ? -1 : 0);
+		});
 		myScores.forEach(s -> System.out.println(s.toString()));
 	}
 
+	// using stream
+	// old code
+	// myScores.forEach(s -> {
+	//   if (testCriteria.test(s)) {
+	//   System.out.println(s);
+	// }
+	// });
+
 	public void printSelectedScores(Predicate<Double> testCriteria) {
-		myScores.forEach(s -> {
-			if (testCriteria.test(s)) {
-				System.out.println(s);
-			}
-		});
+		myScores.stream().filter(testCriteria).forEach(s -> System.out.println(s));
+		return;
+	}
+
+	// Using a 'Stream' to sum all scores.
+	// Reason: A lambda expression can not change a variable defined in the
+	// enclosing scope.
+	// Thus we can't have a variable that we increment inside the lambda
+	// expression to sum up all values.
+
+	public double getTotalOfAllScores() {
+		// separated into multiple lines
+		// Stream<Double> myStream = myScores.stream();
+		// return myStream.reduce(0d, (t, s) -> t + s);
+
+		// more compact version
+		return myScores.stream().reduce(0d, (t, s) -> t + s);
 	}
 
 }
