@@ -52,8 +52,9 @@ public class Main {
 		examManager.printScores();
 
 		System.out.println();
-		System.out.println("Scores >= 70");
-		examManager.printSelectedScores(s -> s >= 70);
+		int limit = 60;
+		System.out.println("Scores >= " + limit);
+		examManager.printSelectedScores(s -> s >= limit);
 	}
 
 }
