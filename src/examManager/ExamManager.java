@@ -27,16 +27,7 @@ public class ExamManager {
 	}
 
 	public void printScores() {
-		Comparator<Double> dComp = (o1, o2) -> {
-			return (o1 < o2) ? 1 : ((o1 > o2) ? -1 : 0);
-			// same as below
-			//			if (o1 < o2)
-			//				return 1;
-			//			if (o1 > o2)
-			//				return -1;
-			//			return 0;
-		};
-		Collections.sort(myScores, dComp);
+		Collections.sort(myScores, (o1, o2) -> {return (o1 < o2) ? 1 : ((o1 > o2) ? -1 : 0);});
 		myScores.forEach(s -> System.out.println(s.toString()));
 	}
 
