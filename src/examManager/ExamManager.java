@@ -2,7 +2,7 @@ package examManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
 
 public class ExamManager {
@@ -23,9 +23,18 @@ public class ExamManager {
 	public Double customCalculation(ToDoubleFunction<List<Double>> calculator) {
 		return calculator.applyAsDouble(myScores);
 	}
-	
+
 	public void printScores() {
-		System.out.println("The scores are:");
 		myScores.forEach(s -> System.out.println(s.toString()));
 	}
+
+
+	public void printSelectedScores(Predicate<Double> testCriteria) {
+		myScores.forEach(s -> {
+			if (testCriteria.test(s)) {
+				System.out.println(s);
+			}
+		});
+	}
+
 }

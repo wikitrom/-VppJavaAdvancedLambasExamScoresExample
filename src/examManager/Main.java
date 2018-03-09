@@ -35,18 +35,25 @@ public class Main {
 		ExamManager examManager = new ExamManager();
 
 		System.out.println();
-		
+
 		// passing defined lambda functios as argument
-		System.out.println("Using lamba functions:"); 
+		System.out.println("Using lamba functions:");
 		System.out.println("The average score is " + examManager.customCalculation(average));
 		System.out.println("The highest score is " + examManager.customCalculation(highest));
 		System.out.println("The lowest score is " + examManager.customCalculation(lowest));
-		
-		 // use in-line lambda functions
-		System.out.println("The first score is " + examManager.customCalculation(scores -> scores.get(0))); 
-		System.out.println("The last score is " + examManager.customCalculation(scores -> scores.get(scores.size()-1))); 
-		
+
+		// use in-line lambda functions
+		System.out.println("The first score is " + examManager.customCalculation(scores -> scores.get(0)));
+		System.out
+				.println("The last score is " + examManager.customCalculation(scores -> scores.get(scores.size() - 1)));
+
+		System.out.println();
+		System.out.println("All scores:");
 		examManager.printScores();
+
+		System.out.println();
+		System.out.println("Scores >= 70");
+		examManager.printSelectedScores(s -> s >= 70);
 	}
 
 }
