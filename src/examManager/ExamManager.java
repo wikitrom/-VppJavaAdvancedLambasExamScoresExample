@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.swing.text.StyledEditorKit.ForegroundAction;
@@ -63,4 +64,15 @@ public class ExamManager {
 		return myScores.stream().reduce(0d, (t, s) -> t + s);
 	}
 
+	public void doubleAllScores() {
+		// using a stream to double all scores (manipulate collection data)
+		myScores.stream().map(d -> d * 2).forEach(s -> System.out.println(s));
+	}
+	
+		public List<Double> getListOfDoubledScores() {
+		// using a stream to double all scores (manipulate collection data)
+		return myScores.stream().map(d -> d * 2).collect(Collectors.toList());
+	}
+
 }
+

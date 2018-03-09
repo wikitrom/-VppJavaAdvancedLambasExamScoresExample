@@ -1,6 +1,7 @@
 package examManager;
 
 import java.util.List;
+import java.util.function.DoubleToLongFunction;
 import java.util.function.ToDoubleFunction;
 
 public class Main {
@@ -59,6 +60,21 @@ public class Main {
 		System.out.println();
 		System.out.println("Total of all scores: " + examManager.getTotalOfAllScores());
 
+		System.out.println();
+		System.out.println("Double the scores and print them out.");
+		examManager.doubleAllScores();
+
+		System.out.println();
+		System.out.println("Double the scores, save in new list and print out the scores.");
+		List<Double> doubledScores = examManager.getListOfDoubledScores();
+
+		for (Double dScore : doubledScores) {
+			System.out.println(dScore);
+		}
+
+		System.out.println();
+		System.out.println("Printing out again using more compact code");
+		doubledScores.forEach(s -> System.out.println(s));
 	}
 
 }
