@@ -12,6 +12,10 @@ import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class ExamManager {
 
+	public static boolean isItLowerThan50(Double d) {
+		return (d < 50);
+	}
+
 	private List<Double> myScores;
 
 	public ExamManager() {
@@ -39,8 +43,8 @@ public class ExamManager {
 	// using stream
 	// old code
 	// myScores.forEach(s -> {
-	//   if (testCriteria.test(s)) {
-	//   System.out.println(s);
+	// if (testCriteria.test(s)) {
+	// System.out.println(s);
 	// }
 	// });
 
@@ -68,11 +72,10 @@ public class ExamManager {
 		// using a stream to double all scores (manipulate collection data)
 		myScores.stream().map(d -> d * 2).forEach(s -> System.out.println(s));
 	}
-	
-		public List<Double> getListOfDoubledScores() {
+
+	public List<Double> getListOfDoubledScores() {
 		// using a stream to double all scores (manipulate collection data)
 		return myScores.stream().map(d -> d * 2).collect(Collectors.toList());
 	}
 
 }
-

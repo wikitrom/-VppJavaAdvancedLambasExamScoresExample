@@ -58,6 +58,10 @@ public class Main {
 		examManager.printSelectedScores(s -> s >= limit);
 
 		System.out.println();
+		System.out.println("Print scores lower than 50 using 'method reference' to isItLowerThan50(Double)");
+		examManager.printSelectedScores(ExamManager::isItLowerThan50);
+
+		System.out.println();
 		System.out.println("Total of all scores: " + examManager.getTotalOfAllScores());
 
 		System.out.println();
@@ -75,6 +79,13 @@ public class Main {
 		System.out.println();
 		System.out.println("Printing out again using more compact code");
 		doubledScores.forEach(s -> System.out.println(s));
-	}
 
+		System.out.println();
+		System.out.println("Printing out again using more compact code");
+		doubledScores.forEach(s -> System.out.println(s));
+
+		System.out.println();
+		System.out.println("Print out again using 'method reference'");
+		doubledScores.forEach(System.out::println);
+	}
 }
